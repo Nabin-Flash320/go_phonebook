@@ -72,7 +72,7 @@ func (model_implementation *ModelDBPhonebookInterfaceImplementation) ModelDBFind
 
 }
 
-func UserModelDBMigrationHandler() bool {
+func PhonebookModelDBMigrationHandler() bool {
 
     db := UserModelDBCreateConnection()
     defer UserModelDBCloseConnection(db)

@@ -15,6 +15,10 @@ type ModelMigrationManager struct {
 var migration_manager = [...] ModelMigrationManager {
 	{
 		"phonebook",
+		PhonebookModelDBMigrationHandler,
+	},
+	{
+		"user",
 		UserModelDBMigrationHandler,
 	},
 }
