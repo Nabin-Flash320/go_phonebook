@@ -10,10 +10,13 @@ import (
 	"os"
 	"github.com/gin-gonic/gin"
 
-	"github.com/Nabin-Flash320/go_phonebook/URIHandlers"
-	"github.com/Nabin-Flash320/go_phonebook/Middlewares"
-	"github.com/Nabin-Flash320/go_phonebook/ModelDB"
-	"github.com/Nabin-Flash320/go_phonebook/Settings"
+	"github.com/Nabin-Flash320/go_phonebook/Core/Middlewares"
+	"github.com/Nabin-Flash320/go_phonebook/Core/Database"
+	"github.com/Nabin-Flash320/go_phonebook/Core/Settings"
+	"github.com/Nabin-Flash320/go_phonebook/Core/Services"
+
+	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/URIHandlers"
+	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/Models"
 )
 
 func serverInit() {
@@ -29,7 +32,6 @@ func serverInit() {
 	fmt.Printf("\033[32m Server started at: http://%s:8000 \n\033[0m", host_addr)
 
 	router.Run(host_addr + ":8000")
-
 
 }
 
@@ -79,15 +81,15 @@ func read_super_user_cred() {
 			fmt.Println("The user name provided is:", super_user_name)
 			fmt.Println("The provided password is: ", super_user_password)
 
-			user_model := &ModelDB.UserModel{
+			user_model := &Models.UserModel{
 				Name: super_user_name,
 				Password: super_user_password,
 				Email: super_user_email,
 			}
 
-			db := ModelDB.UserModelDBCreateConnection()
-			defer ModelDB.UserModelDBCloseConnection(db)
-			user_interface_implementation := ModelDB.CreateNewUserModelInterface(db)
+			db := Database.UserModelDBCreateConnection()
+			defer Database.UserModelDBCloseConnection(db)
+			user_interface_implementation := Models.CreateNewUserModelInterface(db)
 			err := user_interface_implementation.ModelDBCreateSuperUser(user_model)
 			if err != nil {
 
@@ -121,7 +123,7 @@ func main() {
 
 	}else if *migrate {
 
-		ModelDB.ModelDBMakeMigrations(*model)
+		Services.ModelDBMakeMigrations(*model)
 
 	} else if *createsuperuser {
 

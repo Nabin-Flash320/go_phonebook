@@ -1,13 +1,13 @@
 
 
-package ModelDB
+package Database
 
 import (
     "github.com/jinzhu/gorm"
     _ "github.com/jinzhu/gorm/dialects/mysql"
     "fmt"
 
-    "github.com/Nabin-Flash320/go_phonebook/Settings"
+    "github.com/Nabin-Flash320/go_phonebook/Core/Settings"
 )
 
 

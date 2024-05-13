@@ -1,11 +1,14 @@
 
-package ModelDB
+package Services
 
 import (
 	"fmt"
+
+	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/Models"
 )
 
 type migrationHandlerFunction func() bool
+
 
 type ModelMigrationManager struct {
 	name string
@@ -15,11 +18,11 @@ type ModelMigrationManager struct {
 var migration_manager = [...] ModelMigrationManager {
 	{
 		"phonebook",
-		PhonebookModelDBMigrationHandler,
+		Models.PhonebookModelDBMigrationHandler,
 	},
 	{
 		"user",
-		UserModelDBMigrationHandler,
+		Models.UserModelDBMigrationHandler,
 	},
 }
 

@@ -1,6 +1,6 @@
 
 
-package ModelDB
+package Database
 
 
 type ModelDBInterfaces interface {
