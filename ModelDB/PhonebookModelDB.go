@@ -10,9 +10,9 @@ import (
 
 type PhonebookModel struct {
     gorm.Model
-    Name  string
-    Address string
-    PhoneNumber uint64 `gorm:"unique"` 
+    Name  string `json:"name"`
+    Address string `json:"address"`
+    PhoneNumber uint64  `json:phonenumber`
     // database constraint enforcement is used to describe the additional information about model column
 }
 

@@ -14,12 +14,5 @@ type ModelDBInterfaces interface {
 }
 
 
-type ModelDBManagerInterface interface {
-
-	ModelDBManagerCreateUser(interface{}) error 
-	ModelDBManagerCreateSuperUser(interface{}) error
-
-}
-
 
 

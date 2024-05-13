@@ -109,3 +109,4 @@ func UserModelDBMigrationHandler() bool {
     return true
     
 }
+
