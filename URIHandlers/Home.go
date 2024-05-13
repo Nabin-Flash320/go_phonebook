@@ -9,7 +9,12 @@ import (
 
 func HomeUriGetMethodHandler(c *gin.Context) {
 
-	c.String(200, "Hello, World: from home get uri handler")
+	c.JSON(
+		200, 
+		gin.H{
+			"status": "success",
+		},
+	)
 
 }
 
