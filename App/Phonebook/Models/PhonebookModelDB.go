@@ -76,8 +76,8 @@ func (model_implementation *ModelDBPhonebookInterfaceImplementation) ModelDBFind
 
 func PhonebookModelDBMigrationHandler() bool {
 
-    db := Database.UserModelDBCreateConnection()
-    defer Database.UserModelDBCloseConnection(db)
+    db := Database.DatabaseCreateConnection()
+    defer Database.DatabaseCloseConnection(db)
     db.AutoMigrate(&PhonebookModel{})
 
     return true

@@ -104,8 +104,8 @@ func (model_implementation *ModelDBUserInterfaceImplementation) ModelDBFindAll()
 
 func UserModelDBMigrationHandler() bool {
 
-    db := Database.UserModelDBCreateConnection()
-    defer Database.UserModelDBCloseConnection(db)
+    db := Database.DatabaseCreateConnection()
+    defer Database.DatabaseCloseConnection(db)
     db.AutoMigrate(&UserModel{})
 
     return true

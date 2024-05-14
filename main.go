@@ -86,8 +86,8 @@ func read_super_user_cred() {
 				Email: super_user_email,
 			}
 
-			db := Database.UserModelDBCreateConnection()
-			defer Database.UserModelDBCloseConnection(db)
+			db := Database.DatabaseCreateConnection()
+			defer Database.DatabaseCloseConnection(db)
 			user_interface_implementation := Models.CreateNewUserModelInterface(db)
 			err := user_interface_implementation.ModelDBCreateSuperUser(user_model)
 			if err != nil {
