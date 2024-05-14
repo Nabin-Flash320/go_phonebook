@@ -15,7 +15,6 @@ import (
 	"github.com/Nabin-Flash320/go_phonebook/Core/Settings"
 	"github.com/Nabin-Flash320/go_phonebook/Core/Services"
 
-	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/URIHandlers"
 	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/Models"
 )
 
@@ -27,7 +26,7 @@ func serverInit() {
 
 	router.Use(Middlewares.LoggerwareMiddleware())
 
-	router.GET("/", URIHandlers.HomeUriGetMethodHandler)
+	Services.ServerRegisterUIR(router)
 	
 	fmt.Printf("\033[32m Server started at: http://%s:8000 \n\033[0m", host_addr)
 

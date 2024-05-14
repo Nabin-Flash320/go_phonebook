@@ -19,4 +19,14 @@ func HomeUriGetMethodHandler(c *gin.Context) {
 }
 
 
+func HomeUriPostMethodHandler(c *gin.Context) {
+
+	c.JSON(
+		200, 
+		gin.H{
+			"status": "success",
+		},
+	)
+
+}
 
