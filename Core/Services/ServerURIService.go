@@ -46,7 +46,7 @@ func ServerRegisterUIR(engine *gin.Engine) {
 
 			for _, appuri := range uri_pattern.appuris {
 
-				group_name := fmt.Sprintf("/%s", uri_pattern.app)
+				group_name := fmt.Sprintf("api/%s", uri_pattern.app)
 				group := engine.Group(group_name)
 				{
 					
