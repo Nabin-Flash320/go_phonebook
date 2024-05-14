@@ -9,6 +9,7 @@ import (
 
 var allowedHosts = [...]string{
 	"192.168.254.156",
+	"192.168.1.76",
 }
 
 

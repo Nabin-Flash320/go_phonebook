@@ -1,10 +1,12 @@
 
-package ModelDB
+package Models
 
 
 import (
     "github.com/jinzhu/gorm"
     _ "github.com/jinzhu/gorm/dialects/mysql"
+
+	"github.com/Nabin-Flash320/go_phonebook/Core/Database"
 )
 
 type Role string
@@ -24,7 +26,7 @@ type UserModel struct {
 }
 
 type ModelDBUserInterface interface {
-	ModelDBInterfaces
+	Database.ModelDBInterfaces
 	ModelDBCreateUser(interface{}) error 
 	ModelDBCreateSuperUser(interface{}) error
 }
@@ -102,8 +104,8 @@ func (model_implementation *ModelDBUserInterfaceImplementation) ModelDBFindAll()
 
 func UserModelDBMigrationHandler() bool {
 
-    db := UserModelDBCreateConnection()
-    defer UserModelDBCloseConnection(db)
+    db := Database.UserModelDBCreateConnection()
+    defer Database.UserModelDBCloseConnection(db)
     db.AutoMigrate(&UserModel{})
 
     return true

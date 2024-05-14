@@ -1,10 +1,12 @@
 
-package ModelDB
+package Models
 
 
 import (
     "github.com/jinzhu/gorm"
     _ "github.com/jinzhu/gorm/dialects/mysql"
+
+    "github.com/Nabin-Flash320/go_phonebook/Core/Database"
 )
 
 
@@ -12,7 +14,7 @@ type PhonebookModel struct {
     gorm.Model
     Name  string `json:"name"`
     Address string `json:"address"`
-    PhoneNumber uint64  `json:phonenumber`
+    PhoneNumber uint64  `json:"phonenumber"`
     // database constraint enforcement is used to describe the additional information about model column
 }
 
@@ -74,8 +76,8 @@ func (model_implementation *ModelDBPhonebookInterfaceImplementation) ModelDBFind
 
 func PhonebookModelDBMigrationHandler() bool {
 
-    db := UserModelDBCreateConnection()
-    defer UserModelDBCloseConnection(db)
+    db := Database.UserModelDBCreateConnection()
+    defer Database.UserModelDBCloseConnection(db)
     db.AutoMigrate(&PhonebookModel{})
 
     return true
