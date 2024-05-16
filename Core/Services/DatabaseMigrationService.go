@@ -4,7 +4,7 @@ package Services
 import (
 	"fmt"
 
-	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/Models"
+	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/PhonebookModels"
 )
 
 type migrationHandlerFunction func() bool

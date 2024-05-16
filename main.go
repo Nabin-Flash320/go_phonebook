@@ -15,7 +15,7 @@ import (
 	"github.com/Nabin-Flash320/go_phonebook/Core/Settings"
 	"github.com/Nabin-Flash320/go_phonebook/Core/Services"
 
-	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/Models"
+	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/PhonebookModels"
 )
 
 func serverInit() {

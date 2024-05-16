@@ -6,7 +6,8 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 
-	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/URIHandlers"
+	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/PhonebookURIHandlers"
+	"github.com/Nabin-Flash320/go_phonebook/App/Admin/AdminURIHandlers"
 )
 
 type AppURIS struct {
@@ -22,27 +23,37 @@ type URIPatterns struct {
 
 var uri_patterns = [...] URIPatterns {
 	{
+		app: "admin",
+		appuris: []AppURIS{
+			{
+				method: "GET",
+				uri: "/",
+				handler: AdminURIHandlers.AdminHomeUriGetLoginMethodHandler,
+			},
+		},
+	},
+	{
 		app: "phonebook",
 		appuris: []AppURIS{
 			{
 				method: "GET",
 				uri: "/get/records",
-				handler: URIHandlers.HomeUriGetMethodHandler,
+				handler: PhonebookURIHandlers.PhonebookHomeUriGetMethodHandler,
 			},
 			{
 				method: "POST",
 				uri: "/set/records",
-				handler: URIHandlers.HomeUriPostMethodHandler,
+				handler: PhonebookURIHandlers.PhonebookHomeUriPostMethodHandler,
 			},
 			{
 				method: "GET",
 				uri: "/get/:id",
-				handler: URIHandlers.HomeUriGetByIDMethodHandler,
+				handler: PhonebookURIHandlers.PhonebookHomeUriGetByIDMethodHandler,
 			},
 			{
 				method: "POST",
 				uri: "/del/:id",
-				handler: URIHandlers.HomeUriPostDeleteRecordMethodHandler,
+				handler: PhonebookURIHandlers.PhonebookHomeUriPostDeleteRecordMethodHandler,
 			},
 		},
 	},

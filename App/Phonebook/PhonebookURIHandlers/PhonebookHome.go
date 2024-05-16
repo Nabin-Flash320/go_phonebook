@@ -1,5 +1,5 @@
 
-package URIHandlers
+package PhonebookURIHandlers
 
 import (
 	"strconv"
@@ -8,11 +8,11 @@ import (
 	"github.com/Nabin-Flash320/go_phonebook/Core/Database"
 	"github.com/Nabin-Flash320/go_phonebook/Core/MessagePassing"
 
-	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/Models"
+	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/PhonebookModels"
 )
 
 
-func HomeUriGetMethodHandler(c *gin.Context) {
+func PhonebookHomeUriGetMethodHandler(c *gin.Context) {
 
 	db := Database.DatabaseCreateConnection()
 	defer Database.DatabaseCloseConnection(db)
@@ -26,7 +26,7 @@ func HomeUriGetMethodHandler(c *gin.Context) {
 
 }
 
-func HomeUriGetByIDMethodHandler(c *gin.Context) {
+func PhonebookHomeUriGetByIDMethodHandler(c *gin.Context) {
 
 	id_str := c.Param("id")
 	if id_str == "" {
@@ -80,7 +80,7 @@ func HomeUriGetByIDMethodHandler(c *gin.Context) {
 
 }
 
-func HomeUriPostMethodHandler(c *gin.Context) {
+func PhonebookHomeUriPostMethodHandler(c *gin.Context) {
 
 	var phonebook Models.PhonebookModel
 
@@ -113,7 +113,7 @@ func HomeUriPostMethodHandler(c *gin.Context) {
 }
 
 
-func HomeUriPostDeleteRecordMethodHandler(c *gin.Context) {
+func PhonebookHomeUriPostDeleteRecordMethodHandler(c *gin.Context) {
 
 	id_str := c.Param("id")
 	if id_str == "" {
