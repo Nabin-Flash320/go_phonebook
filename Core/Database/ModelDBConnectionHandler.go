@@ -11,7 +11,7 @@ import (
 )
 
 
-func UserModelDBCreateConnection() *gorm.DB {
+func DatabaseCreateConnection() *gorm.DB {
 
 	var database_name = Settings.DBSettingsGetName()
     var database_user = Settings.DBSettingsGetUser()
@@ -32,7 +32,7 @@ func UserModelDBCreateConnection() *gorm.DB {
 	return db
 }
 
-func UserModelDBCloseConnection(db *gorm.DB) {
+func DatabaseCloseConnection(db *gorm.DB) {
 	
 	db.Close()
 

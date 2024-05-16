@@ -26,13 +26,23 @@ var uri_patterns = [...] URIPatterns {
 		appuris: []AppURIS{
 			{
 				method: "GET",
-				uri: "/",
+				uri: "/get/records",
 				handler: URIHandlers.HomeUriGetMethodHandler,
 			},
 			{
 				method: "POST",
-				uri: "/",
+				uri: "/set/records",
 				handler: URIHandlers.HomeUriPostMethodHandler,
+			},
+			{
+				method: "GET",
+				uri: "/get/:id",
+				handler: URIHandlers.HomeUriGetByIDMethodHandler,
+			},
+			{
+				method: "POST",
+				uri: "/del/:id",
+				handler: URIHandlers.HomeUriPostDeleteRecordMethodHandler,
 			},
 		},
 	},
