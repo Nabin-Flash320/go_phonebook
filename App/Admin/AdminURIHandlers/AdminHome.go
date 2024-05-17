@@ -6,11 +6,12 @@ import (
 )
 
 func AdminHomeUriGetLoginMethodHandler(c *gin.Context) {
-	
-	c.JSON(
+
+	c.HTML(
 		200,
+		"AdminLogin.tmpl",
 		gin.H{
-			"status": "Admin panel",
+			"title": "Admin Login",
 		},
 	)
 

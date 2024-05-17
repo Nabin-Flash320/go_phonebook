@@ -1,0 +1,8 @@
+
+
+
+clear 
+
+go run . -serve
+
+
