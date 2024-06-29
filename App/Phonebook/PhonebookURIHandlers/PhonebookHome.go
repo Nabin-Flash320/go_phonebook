@@ -100,7 +100,7 @@ func PhonebookHomeUriPostMethodHandler(c *gin.Context) {
 
 		phonebook_implementation := Models.CreateNewPhonebookModelInterface(db)
 		message := phonebook_implementation.ModelDBCreate(&phonebook)
-		MessagePassing.MessagePassingPanicOnCritical(message);
+		MessagePassing.MessagePassingPanicOnCritical(message)
 		c.JSON(
 			400,
 			gin.H{

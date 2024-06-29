@@ -5,13 +5,23 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func AdminHomeUriGetLoginMethodHandler(c *gin.Context) {
+func AdminHomeUriPostLoginMethodHandler(c *gin.Context) {
 
-	c.HTML(
+	c.JSON(
 		200,
-		"AdminLogin.tmpl",
 		gin.H{
-			"title": "Admin Login",
+			"status": "success",
+		},
+	)
+
+}
+
+func AdminHomeUriPostLogoutMethodHandler(c *gin.Context) {
+
+	c.JSON(
+		200,
+		gin.H{
+			"status": "succcess"
 		},
 	)
 

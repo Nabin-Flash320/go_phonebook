@@ -15,6 +15,7 @@ type ModelDBInterfaces interface {
 	ModelDBUpdate(interface{}) *MessagePassing.MessageToPass
 	ModelDBDelete(interface{}) *MessagePassing.MessageToPass
 	ModelDBFindByID(uint) (interface{}, *MessagePassing.MessageToPass)
+	ModelDBFindByValue(string) (interface{}, *MessagePassing.MessageToPass)
 	ModelDBFindAll() ([]interface{}, *MessagePassing.MessageToPass)
 
 }

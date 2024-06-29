@@ -125,6 +125,34 @@ func (model_implementation *ModelDBPhonebookInterfaceImplementation) ModelDBFind
 
 }
 
+func (model_implementation *ModelDBPhonebookInterfaceImplementation) ModelDBFindByValue(db_query string) (interface{}, *MessagePassing.MessageToPass) {
+
+    var result PhonebookModel
+    if err := model_implementation.db.First(&result, db_query).Error; err != nil {
+
+        if err.Error() == "Record not found" {
+
+            return nil, &MessagePassing.MessageToPass{
+                Message: "Phonebook query not found",
+                Code: MessagePassing.WARNING,
+            }
+
+        }
+
+        return nil, &MessagePassing.MessageToPass {
+            Message: "Something went wong",
+            Code: MessagePassing.CRITICAL,
+        }
+
+    }
+
+    return &result, &MessagePassing.MessageToPass{
+        Message: "Phonebook query found",
+        Code: MessagePassing.INFO,
+    }
+
+}
+
 func (model_implementation *ModelDBPhonebookInterfaceImplementation) ModelDBFindAll() ([] interface{}, *MessagePassing.MessageToPass) {
 
     var results []PhonebookModel

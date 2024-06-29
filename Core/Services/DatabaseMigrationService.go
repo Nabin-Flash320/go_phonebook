@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/Nabin-Flash320/go_phonebook/App/Phonebook/PhonebookModels"
+	"github.com/Nabin-Flash320/go_phonebook/Core/CoreModels"
 )
 
 type migrationHandlerFunction func() bool
@@ -22,7 +23,11 @@ var migration_manager = [...] ModelMigrationManager {
 	},
 	{
 		"user",
-		Models.UserModelDBMigrationHandler,
+		CoreModels.CoreModelUserDBMigrationHandler,
+	},
+	{
+		"permission",
+		CoreModels.CoreModelPermissionDBMigrationHandler,
 	},
 }
 

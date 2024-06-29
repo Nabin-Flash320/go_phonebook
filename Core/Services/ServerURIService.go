@@ -26,9 +26,14 @@ var uri_patterns = [...] URIPatterns {
 		app: "admin",
 		appuris: []AppURIS{
 			{
-				method: "GET",
-				uri: "/",
-				handler: AdminURIHandlers.AdminHomeUriGetLoginMethodHandler,
+				method: "POST",
+				uri: "/login",
+				handler: AdminURIHandlers.AdminHomeUriPostLoginMethodHandler,
+			},
+			{
+				method: "POST",
+				uri: "/logout",
+				handler: AdminURIHandlers.AdminHomeUriPostLogoutMethodHandler,
 			},
 		},
 	},
